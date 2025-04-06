@@ -6,20 +6,35 @@ Diagrama bloc de mai jos ilustrează modul de interconectare al componentelor pr
 
 ![Block Diagram](https://docs.google.com/drawings/d/1UpxRyJNfczJHhNRvWdeb5kh_7IEUy5173odk93W_GSA/export/png)
 
-## 2. Bill of Materials (BOM)
+## BOM (Bill of Materials)
 
-| Componentă           | Tip                                    | Link Achiziție (Mouser/Comet)                                                                 | Datasheet                                                                                     |
-|------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
-| ESP32-C3-WROOM         | Microcontroller                        | [Mouser](https://www.mouser.com/ProductDetail/Espressif-Systems/ESP32-C3-WROOM-1-N8)            | [Datasheet](https://www.espressif.com/sites/default/files/documentation/esp32-c3-wroom-1_datasheet_en.pdf) |
-| MCP73832               | Battery Charger IC                     | [Mouser](https://www.mouser.com/ProductDetail/Microchip-Technology/MCP73832T-2ATI-OT)           | [Datasheet](https://ww1.microchip.com/downloads/en/devicedoc/22036b.pdf)                     |
-| LDO 3.3V               | Low Dropout Regulator                  | [Comet](https://www.comet.ro/ro/ldo-voltage-regulators)                                          | Exemplu: [XC6220A331MR-G](https://datasheet.lcsc.com/lcsc/1811021613_Torex-Semiconductor-XC6220A331MR-G_C116416.pdf) |
-| DC/DC Converter 5V     | Convertor Tensiune                     | [Mouser](https://www.mouser.com/c/power/dc-dc-converters/)                                      | Depinde de modelul ales                                                                      |
-| E-Ink Display (1.5")    | Afișaj E-Paper                     | [Waveshare](https://www.waveshare.com/product/displays/e-paper/epaper-1.54inch.htm)             | [Datasheet](https://www.waveshare.com/wiki/1.54inch_e-Paper_Module)                          |
-| SD Card Module         | Cititor microSD                        | [Comet](https://www.comet.ro/ro/sloturi-si-conectori-sd-microsd)                                | Model: 112A-TAAR-R03, [Datasheet](https://www.attend.com.tw/products-detail/112A-TAAR-R03)   |
-| BME680                 | Temp/RH Sensor                         | [Mouser](https://www.mouser.com/ProductDetail/Bosch/BME680)                                    | [Datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme680-ds001.pdf) |
-| MH-Z19B                | CO2 Sensor                             | [Mouser](https://www.mouser.com/ProductDetail/Winsen/MH-Z19B)                                   | [Datasheet](https://www.winsen-sensor.com/d/files/PDF/MH-Z19B.pdf)                          |
-| PMSA003                | Particulate Matter Sensor (PM2.5)      | [Mouser](https://www.mouser.com/ProductDetail/Plantower/PMSA003)                               | [Datasheet](https://www.winsen-sensor.com/d/files/PDF/PMSA003.pdf)                          |
-| Buttons                | Tactile Buttons                        | [Mouser](https://www.mouser.com/ProductDetail/Panasonic/EVQ-P7P01K)                             | [Datasheet](https://media.digikey.com/pdf/Data%20Sheets/Panasonic%20Electronic%20Components/EVQ-P7P01K_DS.pdf) |
+| Component | Value | Description | Datasheet | Purchase Link |
+|-----------|-------|-------------|-----------|----------------|
+| CHG_LED | - | LED | - | - |
+| SJ1 | - | SMD solder JUMPER | - | - |
+| EPD_C5 | 0.1uF/50V | CAPACITOR, European symbol | - | - |
+| R3 | 0.47 | RESISTOR, European symbol | - | - |
+| R1_PWRUSB | 100k | RESISTOR, European symbol | - | - |
+| C4_USB | 100nF | CAPACITOR, European symbol | - | - |
+| C1, C2, C6, C8, C9, C10, C_DELAY | 100nF | CAPACITOR, European symbol | - | - |
+| C3 | 100uF TANT | POLARIZED CAPACITOR, European symbol | - | - |
+| R1, R1_PINH, R1_PINH1, R2_PINH, R2_PINH1, R4, R5, R6, R7, R8, R9, R10, R_BOOT, R_CHANGE, R_CL1, R_RESET | 10k | RESISTOR, European symbol | - | - |
+| C7 | 10uF | CAPACITOR, European symbol | - | - |
+| J4 | 112A-TAAR-R03_ATTEND | Micro SD Card Socket, Push-Push Type, Top Mount, SMT, H=1.83mm, 10u | - | - |
+| R_CAPACITOR | 15 | RESISTOR, European symbol | - | - |
+| C5 | 1uF | CAPACITOR, European symbol | - | - |
+| EPD_C6, EPD_C7, EPD_C8, EPD_C9, EPD_C10, EPD_C11, EPD_C12 | 1uF/50V | CAPACITOR, European symbol | - | - |
+| EPD_C1, EPD_C2 | 1uF/50V | CAPACITOR, European symbol | - | - |
+| R2 | 2.2 | RESISTOR, European symbol | - | - |
+| R1_BAT | 200 | RESISTOR, European symbol | - | - |
+| Q1, Q2 | 20V/4.2A/52mΩ/1.4W | P-channel MOSFETs | - | - |
+| R2_BAT | 2k | RESISTOR, European symbol | - | - |
+| C5_USB | 4.7uF | CAPACITOR, European symbol | - | - |
+| C1_BAT, C1_BAT1, C1_BAT2, C2_BAT | 4.7uF | CAPACITOR, European symbol | - | - |
+| U4 | MAX17048G+T10 | Battery Fuel Gauge | [Datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/MAX17048-MAX17049.pdf) | [Mouser](https://www.mouser.com/ProductDetail/Maxim-Integrated/MAX17048G-T10) |
+| U2 | ESP32-C6-WROOM-1-N8 | ESP32 WiFi+BT SoC | [Datasheet](https://www.espressif.com/sites/default/files/documentation/esp32-c6-wroom-1_datasheet_en.pdf) | [Mouser](https://www.mouser.com/ProductDetail/Espressif/ESP32-C6-WROOM-1-N8) |
+| U3 | DS3231SN# | RTC (Real Time Clock) | [Datasheet](https://datasheets.maximintegrated.com/en/ds/DS3231.pdf) | [Mouser](https://www.mouser.com/ProductDetail/Maxim-Integrated/DS3231SN) |
+| SENSOR2 | BME688 | Environmental Sensor | [Datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme688-ds000.pdf) | [Mouser](https://www.mouser.com/ProductDetail/Bosch-Sensortec/BME688) |
 
 ## 3. Funcționalitate hardware
 
