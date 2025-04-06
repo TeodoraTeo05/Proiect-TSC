@@ -114,3 +114,4 @@ Repo-ul include:
 - BOM + Pick and Place
 - Randări din Fusion360
 - Imagini cu PCB-ul
+
