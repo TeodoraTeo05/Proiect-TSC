@@ -1,117 +1,132 @@
-# Proiect TSC 2025 - OpenBook
+# Proiect TSC 2025 – OpenBook
 
-## 1. Diagramă bloc a proiectului
+## 🔧 Descriere generală
 
-```mermaid
-flowchart TB
-  USB_C --> MCP73831["Battery Charger MCP73831"]
-  MCP73831 --> BATTERY["LiPo Battery 2500mAh"]
-  BATTERY --> LDO["LDO 3.3V"]
+OpenBook este un dispozitiv portabil de tip e-book reader bazat pe ESP32-C6. Proiectul a fost realizat în cadrul cursului Tehnici de Sistem pe Cip (TSC) de la Facultatea de Automatică și Calculatoare – UPB. Dispozitivul conține un ecran e-paper, butoane de control, senzor de mediu, ceas de timp real și posibilitate de alimentare de la baterie Li-Po, fiind gândit ca un sistem eficient energetic și scalabil.
 
-  LDO --> ESP32["ESP32-C6-WROOM-1"]
-  LDO --> DISPLAY["7.5'' E-Ink Display"]
-  LDO --> SD["SD Card"]
-  LDO --> RTC["RTC DS3231"]
-  LDO --> SENSOR["BME688"]
-  LDO --> GAUGE["Fuel Gauge MAX17048"]
+---
 
-  ESP32 -- SPI --> DISPLAY
-  ESP32 -- SPI --> SD
-  ESP32 -- I2C --> RTC
-  ESP32 -- I2C --> SENSOR
-  ESP32 -- I2C --> GAUGE
-  ESP32 -- GPIO --> BUTTONS["3x Buttons"]
-  ESP32 -- USB --> USB_C
-```
+## 📊 1. Diagramă bloc
 
-## 2. Bill of Materials (BOM)
+![Diagramă bloc](https://docs.google.com/drawings/d/1UpxRyJNfczJHhNRvWdeb5kh_7IEUy5173odk93W_GSA/export/png)
 
-| Componentă           | Tip / Cod produs                     | Magazin                            | Datasheet / Link |
-|------------------------|--------------------------------------|------------------------------------|------------------|
-| ESP32-C6-WROOM-1-N8    | Modul ESP32                          | [Mouser](https://www.mouser.com/) | [Datasheet](https://www.espressif.com/sites/default/files/documentation/esp32-c6-wroom-1_datasheet_en.pdf) |
-| MCP73831               | Battery Charger                      | [Comet](https://www.comet-electronique.com) | [Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf) |
-| MAX17048               | Fuel Gauge                           | [Mouser](https://www.mouser.com/) | [Datasheet](https://datasheets.maximintegrated.com/en/ds/MAX17048-MAX17049.pdf) |
-| DS3231                 | RTC                                  | [Mouser](https://www.mouser.com/) | [Datasheet](https://datasheets.maximintegrated.com/en/ds/DS3231.pdf) |
-| BME688                 | Senzor mediu                         | [Mouser](https://www.mouser.com/) | [Datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme688-ds000.pdf) |
-| 7.5" E-Ink Display     | Waveshare WSH-13187                  | [Waveshare](https://www.waveshare.com/) | [Specificație](https://www.waveshare.com/wiki/7.5inch_e-Paper_V2) |
-| SD Card Socket         | 112A-TAAR-R03                         | [Comet](https://www.comet-electronique.com) | - |
-| Butoane x3             | Tactile switch                       | [Comet](https://www.comet-electronique.com) | - |
-| Condensatori 100nF     | SMD 0402                             | [Mouser](https://www.mouser.com/) | - |
-| Rezistențe diverse    | SMD 0402                             | [Mouser](https://www.mouser.com/) | - |
-| LDO 3.3V               | XC6220A331MR                         | [Mouser](https://www.mouser.com/) | [Datasheet](https://datasheet.lcsc.com/lcsc/1810271011_Torex-Semicon-XC6220A331MR-G_C5446.pdf) |
+---
 
-## 3. Descriere hardware
+## 🧾 2. Bill of Materials (BOM)
 
-### Microcontroller ESP32-C6-WROOM-1
-ESP32-C6 este nucleul principal al dispozitivului. Are conectivitate Wi-Fi 6, Bluetooth LE, interfațe SPI, I2C, USB 2.0. Este alimentat la 3.3V printr-un LDO. Are 8MB de flash extern.
+| Componentă | Cod | Magazin | Datasheet |
+|-----------|------|---------|-----------|
+| ESP32-C6-WROOM-1-N8 | U2 | [Mouser](https://www.mouser.com/ProductDetail/Espressif/ESP32-C6-WROOM-1-N8) | [Datasheet](https://www.espressif.com/sites/default/files/documentation/esp32-c6-wroom-1_datasheet_en.pdf) |
+| Ecran e-paper 7.5" | WSH-13187 | [Waveshare](https://www.waveshare.com/7.5inch-e-paper-hat.htm) | [Datasheet](https://files.waveshare.com/upload/6/60/7.5inch_e-Paper_V2_Specification.pdf) |
+| Baterie LiPo 2500mAh | LPS84174 | [Comet](https://www.comet-electronique.com) | [Datasheet](https://cdn.sparkfun.com/assets/c/4/5/a/e/LPS84174.pdf) |
+| MCP73831 (Battery Charger) | U5 | [Mouser](https://www.mouser.com/ProductDetail/Microchip/MCP73831T-2ACI-OT) | [Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf) |
+| MAX17048 (Fuel Gauge) | U4 | [Mouser](https://www.mouser.com/ProductDetail/Maxim-Integrated/MAX17048G%2BT10) | [Datasheet](https://datasheets.maximintegrated.com/en/ds/MAX17048.pdf) |
+| DS3231 (RTC) | U3 | [Mouser](https://www.mouser.com/ProductDetail/Maxim-Integrated/DS3231SN) | [Datasheet](https://datasheets.maximintegrated.com/en/ds/DS3231.pdf) |
+| BME688 | SENSOR2 | [Mouser](https://www.mouser.com/ProductDetail/Bosch-Sensortec/BME688) | [Datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme688-ds001.pdf) |
+| Butoane tactile 3x | EVQ-PUJ02K | [Mouser](https://www.mouser.com/ProductDetail/Panasonic/EVQ-PUJ02K) | [Datasheet](https://na.industrial.panasonic.com/sites/default/pidsa/files/evqpu.pdf) |
+| SD Card Socket | 112A-TAAR-R03 | [Comet](https://store.comet.srl.ro/Catalogue/Product/43497/) | [Datasheet](https://www.hirose.com/en/product/document?clcode=CL0581-0013-0-00&productname=112A-TAAR&series=112A&documenttype=Catalog&lang=en&documentid=D109234_en) |
 
-### Afișaj E-Paper
-Un ecran Waveshare de 7.5" este utilizat pentru afișare statică, ideal pentru consum redus. Comunică prin SPI (MOSI, MISO, CLK, CS), având pinii de control DC, RST și BUSY.
+> Alte componente pasive (rezistențe, condensatori) sunt în capsulă 0402 și nu sunt incluse individual în tabel.
 
-### Managementul energiei
-Dispozitivul este alimentat de la o baterie LiPo 3.7V 2500mAh. Încărcarea se face prin MCP73831, conectat la USB-C. LDO-ul (XC6220A331MR) convertește tensiunea la 3.3V. MAX17048 monitorizează nivelul bateriei.
+---
 
-### Senzori
-- **BME688**: măsoară temperatura, presiunea, umiditatea și calitatea aerului. Se conectează prin I2C.
-- **DS3231**: ceas de timp real precis, conectat prin I2C.
+## ⚙️ 3. Funcționalitate hardware detaliată
 
-### Stocare
-- **SD Card**: permite stocarea eBook-urilor și a log-urilor. Comunicare prin SPI.
+### ESP32-C6-WROOM-1
 
-### Interacțiune
-- **Butoane**: trei butoane tactile sunt conectate la GPIO pentru controlul meniului sau a paginilor.
+- Microcontroller principal, cu conectivitate WiFi 6 și USB 2.0.
+- Are suport pentru SPI și I2C, ideale pentru conectarea senzorilor și afișajului.
+- Rulează codul care gestionează meniul, ecranul, senzorii și datele de pe SD Card.
 
-### Alte detalii hardware
-- Toate componentele pasive sunt SMD 0402.
-- PCB-ul este cu 2 straturi, 1mm grosime.
-- Antena ESP32 este orientată spre exterior, fără trasee în zona sa.
-- Silkscreen-ul este clar, conține doar numele componentelor.
-- Decuplarea s-a realizat cu condensatori de 100nF aproape de fiecare circuit integrat.
+### Ecran e-paper 7.5" Waveshare
 
-## 4. Alocarea pinilor ESP32-C6
+- Conectat prin SPI (CLK, MOSI, CS, DC, RST, BUSY).
+- Rezoluție 800x480, consum zero în static.
+- Ideal pentru afișaj de tip e-book.
 
-| Pin ESP32-C6 | Componentă             | Funcție                     |
-|--------------|--------------------------|-------------------------------|
-| GPIO1        | SDA                      | I2C - toți senzorii         |
-| GPIO2        | SCL                      | I2C - toți senzorii         |
-| GPIO5        | SPI MISO                 | Display / SD card             |
-| GPIO6        | SPI MOSI                 | Display / SD card             |
-| GPIO7        | SPI CLK                  | Display / SD card             |
-| GPIO8        | SPI CS (Display)         | Select display                |
-| GPIO9        | DC (Display)             | Control display               |
-| GPIO10       | RST (Display)            | Reset hardware                |
-| GPIO11       | BUSY (Display)           | Status display                |
-| GPIO12       | Button 1                 | Navigare                      |
-| GPIO13       | Button 2                 | Selectare                     |
-| GPIO14       | Button 3                 | Întoarcere / Menșinere      |
-| GPIO15       | ALERT (MAX17048)         | Semnal baterie scăzută     |
-| GPIO16       | USB D+                   | USB 2.0                       |
-| GPIO17       | USB D-                   | USB 2.0                       |
-| GPIO18       | LED (status)             | Indicator                     |
-| GPIO19       | CS (SD card)             | Select card                   |
-| GPIO20       | MISO (SD)                | Date de la card               |
-| GPIO21       | MOSI (SD)                | Date spre card                |
-| GPIO4        | CLK (SD)                 | Clock                         |
+### Alimentare și management baterie
 
-## 5. Observații despre proiectare
+- Baterie LiPo de 2500mAh, încărcată prin MCP73831.
+- Fuel gauge MAX17048 pentru monitorizarea tensiunii și nivelului de încărcare.
+- LDO separat pentru 3.3V (ex. XC6220).
 
-- S-au folosit trasee de alimentare de 0.3mm, semnalele de date au 0.15mm.
-- Nu s-au folosit unghiuri drepte la trasee.
-- Vias-urile la alimentare au fost evitate pe cât posibil.
-- Via stitching aplicat în jurul planurilor de masă.
-- Decupaj sub antena ESP32, fără planuri GND sau semnale.
-- Amplasarea componentelor respectă ghidul mecanic.
+### RTC – DS3231
 
-## 6. Alte informații utile
+- Timp real precis, backup cu supercap.
+- Conectat prin I2C.
 
-- Modelul 3D complet (PCB + baterie + display + carcasă) este exportat în format `.step`.
-- Modelul a fost realizat în Fusion360, cu toate componentele integrate.
-- Test pad-urile sunt marcate clar cu numele semnalelor.
+### Senzor BME688
 
-Repo-ul include:
-- Gerbers
-- .brd și .sch
-- BOM + Pick and Place
-- Randări din Fusion360
-- Imagini cu PCB-ul
+- Măsoară temperatură, presiune, umiditate, calitate aerului.
+- Legat pe magistrala I2C comună.
+
+### SD Card
+
+- Slot conectat prin SPI pentru stocarea cărților în format .txt.
+
+### Butoane
+
+- 3 butoane pentru navigare.
+- Fiecare legat la câte un GPIO (cu rezistențe de pull-down).
+
+---
+
+## 🔌 4. Pinout ESP32-C6 și justificări
+
+| Pin ESP32-C6 | Funcție | Componentă | Motiv |
+|--------------|--------|------------|-------|
+| GPIO1        | SDA    | BME688, MAX17048, DS3231 | I2C |
+| GPIO2        | SCL    | BME688, MAX17048, DS3231 | I2C |
+| GPIO3        | CS     | E-Paper    | SPI control |
+| GPIO4        | RST    | E-Paper    | Reset hardware |
+| GPIO5        | DC     | E-Paper    | Control semnal date/comenzi |
+| GPIO6        | CLK    | E-Paper    | SPI clock |
+| GPIO7        | MOSI   | E-Paper    | SPI date |
+| GPIO8        | BUSY   | E-Paper    | Status afișaj |
+| GPIO9        | BTN1   | Buton #1   | Navigare pagină |
+| GPIO10       | BTN2   | Buton #2   | Înapoi |
+| GPIO11       | BTN3   | Buton #3   | Confirmare |
+| GPIO12       | CS     | SD Card    | Chip Select SPI |
+| GPIO13       | CLK    | SD Card    | SPI clock |
+| GPIO14       | MISO   | SD Card    | SPI dată IN |
+| GPIO15       | MOSI   | SD Card    | SPI dată OUT |
+
+---
+
+## 🔋 Estimare consum
+
+| Modul | Consum (tipic) |
+|-------|----------------|
+| ESP32-C6 | 80mA activ, 10µA deep sleep |
+| E-Paper | 25mA în refresh |
+| BME688 | 3.6mA activ, 2µA standby |
+| DS3231 | 3mA activ |
+| MAX17048 | <100µA |
+| MCP73831 | până la 1A (la încărcare) |
+
+---
+
+## 📐 Alte informații utile
+
+- Design-ul 3D a fost realizat în Fusion360, iar fișierul .step este inclus în folderul `Mechanical`.
+- Decupajul sub antena ESP32 a fost realizat conform specificațiilor.
+- Condensatorii de decuplare de 100nF sunt poziționați aproape de pinii de alimentare.
+- Nu s-au folosit unghiuri drepte în rutare.
+- Componentele sunt toate SMD pe layer-ul TOP.
+
+---
+
+## 🖼️ Randări și imagini
+
+Imagini cu asamblarea dispozitivului, randări 3D și capturi din Fusion360 pot fi găsite în folderul `Images`.
+
+---
+
+## 📎 Design log și surse
+
+- [Design log Fusion360](https://a360.co/4kX1RTV)
+- [Fișiere Gerber și BOM](./Manufacturing/)
+- [Documentația oficială a proiectului TSC](https://ocw.cs.pub.ro/courses/tsc/proiect2025)
+
+---
 
