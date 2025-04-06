@@ -1,139 +1,98 @@
-# OpenBook - Proiect TSC 2025
+# Proiect TSC 2025 - OpenBook
 
-## 1. Diagramă bloc
+## 1. Diagrama bloc a sistemului
 
-Diagrama bloc completă este disponibilă aici: [Diagrama Bloc - Google Drawings](https://docs.google.com/drawings/d/1UpxRyJNfczJHhNRvWdeb5kh_7IEUy5173odk93W_GSA/edit?usp=sharing)
+Diagrama bloc de mai jos ilustrează modul de interconectare al componentelor principale utilizate în cadrul proiectului:
 
-Aceasta ilustrează conexiunile dintre ESP32-C6-WROOM-1, modulele de alimentare, senzori, afișajul e-paper, butoanele fizice, portul USB-C, memoria flash externă, RTC-ul și cititorul de card microSD.
+![Block Diagram](https://docs.google.com/drawings/d/1UpxRyJNfczJHhNRvWdeb5kh_7IEUy5173odk93W_GSA/export/png)
 
----
+## 2. Bill of Materials (BOM)
 
-## 2. BOM - Bill of Materials
+| Componentă           | Tip                                    | Link Achiziție (Mouser/Comet)                                                                 | Datasheet                                                                                     |
+|------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| ESP32-C3-WROOM         | Microcontroller                        | [Mouser](https://www.mouser.com/ProductDetail/Espressif-Systems/ESP32-C3-WROOM-1-N8)            | [Datasheet](https://www.espressif.com/sites/default/files/documentation/esp32-c3-wroom-1_datasheet_en.pdf) |
+| MCP73832               | Battery Charger IC                     | [Mouser](https://www.mouser.com/ProductDetail/Microchip-Technology/MCP73832T-2ATI-OT)           | [Datasheet](https://ww1.microchip.com/downloads/en/devicedoc/22036b.pdf)                     |
+| LDO 3.3V               | Low Dropout Regulator                  | [Comet](https://www.comet.ro/ro/ldo-voltage-regulators)                                          | Exemplu: [XC6220A331MR-G](https://datasheet.lcsc.com/lcsc/1811021613_Torex-Semiconductor-XC6220A331MR-G_C116416.pdf) |
+| DC/DC Converter 5V     | Convertor Tensiune                     | [Mouser](https://www.mouser.com/c/power/dc-dc-converters/)                                      | Depinde de modelul ales                                                                      |
+| E-Ink Display (1.5")    | Afișaj E-Paper                     | [Waveshare](https://www.waveshare.com/product/displays/e-paper/epaper-1.54inch.htm)             | [Datasheet](https://www.waveshare.com/wiki/1.54inch_e-Paper_Module)                          |
+| SD Card Module         | Cititor microSD                        | [Comet](https://www.comet.ro/ro/sloturi-si-conectori-sd-microsd)                                | Model: 112A-TAAR-R03, [Datasheet](https://www.attend.com.tw/products-detail/112A-TAAR-R03)   |
+| BME680                 | Temp/RH Sensor                         | [Mouser](https://www.mouser.com/ProductDetail/Bosch/BME680)                                    | [Datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme680-ds001.pdf) |
+| MH-Z19B                | CO2 Sensor                             | [Mouser](https://www.mouser.com/ProductDetail/Winsen/MH-Z19B)                                   | [Datasheet](https://www.winsen-sensor.com/d/files/PDF/MH-Z19B.pdf)                          |
+| PMSA003                | Particulate Matter Sensor (PM2.5)      | [Mouser](https://www.mouser.com/ProductDetail/Plantower/PMSA003)                               | [Datasheet](https://www.winsen-sensor.com/d/files/PDF/PMSA003.pdf)                          |
+| Buttons                | Tactile Buttons                        | [Mouser](https://www.mouser.com/ProductDetail/Panasonic/EVQ-P7P01K)                             | [Datasheet](https://media.digikey.com/pdf/Data%20Sheets/Panasonic%20Electronic%20Components/EVQ-P7P01K_DS.pdf) |
 
-| Componentă                    | Tip                       | Link achiziție                                                                                 | Datasheet                                                                                  |
-|-------------------------------|----------------------------|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| ESP32-C6-WROOM-1-N8          | Microcontroller            | [Mouser](https://www.mouser.com/ProductDetail/356-ESP32C6WROOM1N8)                              | [Datasheet](https://www.espressif.com/sites/default/files/documentation/esp32-c6_datasheet_en.pdf) |
-| MCP73831                     | Controller încărcare baterie | [Mouser](https://www.mouser.com/ProductDetail/579-MCP73831T-2ACIOT)                            | [Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf)               |
-| MAX17048                     | Fuel Gauge baterie         | [Mouser](https://www.mouser.com/ProductDetail/700-MAX17048GT10)                                | [Datasheet](https://datasheets.maximintegrated.com/en/ds/MAX17048.pdf)                    |
-| DS3231SN                     | Ceas RTC                   | [Mouser](https://www.mouser.com/ProductDetail/913-DS3231SN)                                    | [Datasheet](https://datasheets.maximintegrated.com/en/ds/DS3231.pdf)                      |
-| BME688                       | Senzor de mediu            | [Comet](https://www.comet.ro/bme688)                                                            | [Datasheet](https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme688/) |
-| 7.5" E-Ink Display (WSH-13187) | Afișaj e-paper           | [Waveshare](https://www.waveshare.com/wiki/7.5inch_e-Paper_V2)                                 | [Datasheet](https://www.waveshare.com/w/upload/e/e8/7.5inch-e-paper-v2-specification.pdf)   |
-| 112A-TAAR-R03                | Slot card microSD          | [Comet](https://store.comet.srl.ro/Catalogue/Product/43497/)                                  | [Datasheet](https://www.attend.com.tw/uploads/product/file/20210105/112A-TAAR-R03.pdf)     |
-| USB4110-GF-A                | Conector USB-C             | [Mouser](https://www.mouser.com/ProductDetail/GCT/USB4110-GF-A)                               | [Datasheet](https://gct.co/files/drawings/usb4110.pdf)                                     |
-| LDO XC6220                  | Regulator tensiune 3.3V    | [Mouser](https://www.mouser.com/ProductDetail/865-XC6220A331MR-G)                             | [Datasheet](https://www.torexsemi.com/file/xc6220/XC6220.pdf)                             |
-| Butoane tactice             | Comutatoare SMD            | [Mouser](https://www.mouser.com/ProductDetail/667-EVQPUJ02K)                                  | [Datasheet](https://industrial.panasonic.com/cdbs/www-data/pdf/ATK0000/ATK0000C144.pdf)     |
-| Rezistențe 0402           | Pasive SMD                 | [Mouser](https://www.mouser.com/ProductDetail/YAGEO/RC0402FR-0710KL)                          | [Datasheet](https://www.yageo.com/upload/media/product/productSeries/15/Yageo-RC-Series-Datasheet-2022.pdf) |
+## 3. Funcționalitate hardware
 
----
+Proiectul OpenBook este un cititor de tip e-paper, alimentat din baterie LiPo și construit în jurul microcontrollerului ESP32-C3-WROOM. 
+Dispozitivul colectează date de mediu (temperatură, umiditate, CO2, particule), le salvează pe card microSD și le poate afișa pe ecranul e-paper.
 
-## 3. Descriere hardware completă
+### ESP32-C3-WROOM
+- Modulul principal cu conectivitate Wi-Fi/BLE, capabil să comunice prin SPI, I2C și UART.
+- Tensiune de alimentare: 3.3V, furnizată de LDO.
 
-### ESP32-C6-WROOM-1-N8
-- Microcontroller principal cu suport pentru Wi-Fi 6 și Bluetooth 5.
-- Comunică prin SPI și I2C cu restul componentelor.
-- Dispune de USB nativ (pini IO16 și IO17).
+### Sistem de alimentare
+- **USB-C** este utilizat pentru încărcare și comunicare USB.
+- **MCP73832** gestionează încărcarea bateriei LiPo.
+- **LDO 3.3V** alimentează ESP32 și restul componentelor la 3.3V.
+- **DC/DC 5V** generează 5V pentru senzorii care necesită tensiune mai mare (PM și CO2).
 
-### Afișaj E-Ink 7.5"
-- SPI cu semnale CS, DC, RST, BUSY.
-- Consumul este aproape zero în modul static.
+### Senzori
+- **BME680** - senzor de temperatură, umiditate și gaze, comunică prin I2C.
+- **MH-Z19B** - senzor de CO2 alimentat la 5V, comunică prin UART.
+- **PMSA003** - senzor pentru particule fine (PM2.5), comunică prin UART, 5V.
 
-### Senzor BME688
-- Măsoară temperatură, presiune, umiditate și calitatea aerului.
-- Comunică prin magistrala I2C.
-
-### Modul RTC DS3231SN
-- RTC foarte precis cu suport pentru alimentare backup (supercondensator).
-- Conectat tot prin I2C.
-
-### MAX17048
-- Fuel gauge pentru monitorizarea stării bateriei.
-- Transmite nivelul de încărcare către ESP32 prin I2C.
-
-### MCP73831
-- Circuit de încărcare Li-Po cu intrare USB 5V și ieșire controlată.
+### Afișaj
+- Display e-paper monocrom de 1.5" cu rezoluție 200x200 px.
+- Interfață SPI comună cu SD Card-ul.
 
 ### SD Card
-- Comunicare SPI cu ESP32.
-- Folosit pentru stocarea fișierelor e-book.
-
-### Qwiic Connector
-- Permite adăugarea rapidă a altor senzori I2C compatibili.
+- Modul pentru stocarea datelor colectate sau a fișierelor text.
+- Interfață SPI.
 
 ### Butoane
-- 3 butoane legate la GPIO-uri.
-- Folosite pentru navigarea prin meniu.
+- 3 butoane tactile conectate la GPIO pentru control interfață (ex. navigare meniu, refresh ecran).
 
----
+### Calcule de consum estimativ (valori medii)
 
-## 4. Pinii ESP32-C6 folosiți
+| Modul                | Tensiune | Curent (mA) | Consum estimativ |
+|----------------------|----------|-------------|------------------|
+| ESP32-C3             | 3.3V     | 80-150       | 0.3-0.5W         |
+| E-Ink Display        | 3.3V     | 10 (refresh) | 0.03W            |
+| BME680               | 3.3V     | 2-3          | 0.01W            |
+| MH-Z19B              | 5V       | 40-50        | 0.25W            |
+| PMSA003              | 5V       | 60-100       | 0.5W             |
+| SD Card              | 3.3V     | 10           | 0.03W            |
+| MCP73832 (charger)   | 5V       | 1000 (max)   | doar când încarcă |
 
-| Pin ESP32-C6    | Componentă / Semnal         | Funcție                                                                 |
-|----------------|------------------------------|--------------------------------------------------------------------------|
-| IO7            | MOSI (SPI)                  | Trimitere date SPI                                                        |
-| IO2            | MISO (SPI)                  | Citire date SPI                                                           |
-| IO6            | CLK (SPI)                   | Clock SPI                                                                 |
-| IO10           | CS E-paper                  | Select display                                                            |
-| IO5            | DC E-paper                  | Data/Command pentru afișaj                                              |
-| IO23           | RST E-paper                 | Reset hardware e-paper                                                    |
-| IO3            | BUSY E-paper                | Status e-paper                                                            |
-| IO4            | CS SD Card                  | Select card                                                               |
-| IO11           | CS Flash extern             | Select memorie                                                            |
-| IO22           | I2C SCL                     | Clock pentru I2C                                                          |
-| IO21           | I2C SDA                     | Date pentru I2C                                                           |
-| IO12, IO13     | USB D-/D+                   | Conexiune USB                                                             |
-| IO8            | INT RTC                     | Semnal alarmă de la RTC                                                  |
-| IO1            | 32KHz RTC                   | Semnal ceas RTC                                                           |
-| IO18           | RESET RTC                   | Reset RTC                                                                 |
-| IO9            | Buton BOOT                  | GPIO pentru buton                                                         |
-| EN             | Reset                       | Reset general                                                             |
-| IO15           | ALERT Fuel Gauge            | Semnal avertizare baterie                                                 |
-| GPIO0-19       | Disponibili pentru GPIO-uri | Pot fi folosiți pentru extensii, leduri, debug etc.                     |
+**Modul deep sleep:** Consum sub 1 mA total. Ideal pentru dispozitiv portabil.
 
----
+## 4. Pinout ESP32-C3
 
-## 5. Management energetic estimativ
+| Pin ESP32-C3     | Componentă                 | Motiv / Semnal                          |
+|------------------|------------------------------|-----------------------------------------|
+| GPIO1 (I2C SDA)  | BME680                       | Comunicație I2C                       |
+| GPIO2 (I2C SCL)  | BME680                       | Comunicație I2C                       |
+| GPIO3 (UART RX)  | PMSA003                      | UART RX senzor PM                       |
+| GPIO4 (SPI CS SD)| SD Card                      | Chip Select SD Card                     |
+| GPIO5            | E-Ink DC                     | Date/Command E-Ink                      |
+| GPIO6 (SPI CLK)  | E-Ink & SD                   | Clock SPI                              |
+| GPIO7 (SPI MOSI) | E-Ink & SD                   | Date SPI                               |
+| GPIO8 (GPIO)     | Buton 1                      | Control meniu / page flip              |
+| GPIO9 (GPIO)     | Buton 2                      | Control meniu / page flip              |
+| GPIO10 (SPI CS)  | E-Ink Display                | Chip Select e-paper                    |
+| GPIO11 (SPI CS)  | Flash extern (opțional)     | N/A                                    |
+| GPIO12 (USB D-)  | USB                          | Comunicație USB                       |
+| GPIO13 (USB D+)  | USB                          | Comunicație USB                       |
+| GPIO18           | MH-Z19B (UART TX)            | UART pentru senzor CO2                 |
+| GPIO19           | Buton 3                      | Navigare / confirmare                  |
 
-| Componentă                  | Tensiune (V) | Curent estimat (mA) | Observații                                             |
-|-----------------------------|--------------|---------------------|----------------------------------------------------------|
-| ESP32-C6                   | 3.3          | 80-150              | Depinde de stare (idle, Wi-Fi, BT, etc.)                |
-| Display E-paper            | 3.3          | 25 (refresh), 0 (idle) | Doar când actualizează imaginea                      |
-| BME688                     | 3.3          | 3.6 max             | Consum redus în standby                               |
-| DS3231SN                   | 3.3          | 1                   | RTC constant                                             |
-| MAX17048                   | 3.3          | 0.05                | Monitorizare baterie                                     |
-| MCP73831                   | 5V           | Depinde de încărcare  | Alimentare baterie Li-Po                                 |
-| SD Card                    | 3.3          | 10 max              | Doar când e activ                                        |
-| Total estimativ activ      | -            | 120-180             | Variabil în funcție de operație                     |
-| Total standby (deep sleep) | -            | sub 0.1             | Autonomie de săptămâni                                 |
+## 5. Alte aspecte relevante
 
----
+- Designul PCB respectă recomandările de trasee de putere (min 0.3mm), semnale (min 0.15mm).
+- Antena ESP32-C3 este amplasată spre exteriorul plăcii, iar zona de sub ea este decupată.
+- Condensatoarele de decuplare sunt apropiate de VCC-ul componentelor.
+- Plan de masă solid pe ambele layere și via stitching activ.
+- Toate componentele pasive sunt SMD 0402.
+- Layout-ul este proiectat în Fusion360, aliniat cu dimensiunile carcasei fizice.
+- Imaginile randate ale dispozitivului și carcasei se găsesc în folderul `Images/` din acest repository.
 
-## 6. Alte informații relevante
-
-- **PCB-ul este cu 2 straturi**, cu plan de masă GND pe top și bottom.
-- **Via stitching** aplicat în jurul ESP32 pentru integritate GND.
-- Sub antena ESP32 **nu s-au rulat trasee** și PCB-ul a fost decupat conform cerinței.
-- Toate **componentele sunt montate pe TOP**.
-- Toate **condensatoarele de decuplare** sunt pozițonate cât mai aproape de pinii VCC.
-
-Imagini și randări vor fi adăugate în directorul `Images/`.
-
----
-
-## 7. Design log
-
-Modelul 3D complet (cu toate componentele, bateria și ecranul) este disponibil în Fusion 360:
-
-**Link Fusion:** *se va insera aici linkul proiectului A360.*
-
-Toate constrângerile au fost respectate conform specificațiilor TSC 2025:
-- Plan de masă corect, trasee cu grosimi conforme
-- Decupaj sub antenă
-- Layer de silkscreen curat
-- Test pad-uri marcate
-- Gerber și BOM generate corect
-
----
-
-## [Referințe]
-- [Specificații proiect TSC 2025](https://ocw.cs.pub.ro/courses/tsc/proiect2025)
-- [Datasheet-uri componente - Mouser / Comet / Waveshare / Bosch / Espressif]
