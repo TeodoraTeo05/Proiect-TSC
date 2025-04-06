@@ -1,8 +1,16 @@
-# Proiect TSC 2025 - OpenBook
+# Proiect TSC 2025 – OpenBook
 
-#### Diagrama Bloc
+## 🔧 Descriere generală
 
-![Diagrama Bloc](Images/diagrama_bloc.png)
+OpenBook este un dispozitiv portabil de tip e-book reader bazat pe ESP32-C6. Proiectul a fost realizat în cadrul cursului Tehnici de Sistem pe Cip (TSC) de la Facultatea de Automatică și Calculatoare – UPB. Dispozitivul conține un ecran e-paper, butoane de control, senzor de mediu, ceas de timp real și posibilitate de alimentare de la baterie Li-Po, fiind gândit ca un sistem eficient energetic și scalabil.
+
+---
+
+## 📊 1. Diagramă bloc
+
+![Diagramă bloc](https://docs.google.com/drawings/d/1UpxRyJNfczJHhNRvWdeb5kh_7IEUy5173odk93W_GSA/export/png)
+
+---
 
 
 ## BOM (Bill of Materials)
