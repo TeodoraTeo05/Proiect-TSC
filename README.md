@@ -1,14 +1,13 @@
 # Proiect TSC 2025 – OpenBook
 
-## 🔧 Descriere generală
+## Descriere generală
 
-OpenBook este un dispozitiv portabil de tip e-book reader bazat pe ESP32-C6. Proiectul a fost realizat în cadrul cursului Tehnici de Sistem pe Cip (TSC) de la Facultatea de Automatică și Calculatoare – UPB. Dispozitivul conține un ecran e-paper, butoane de control, senzor de mediu, ceas de timp real și posibilitate de alimentare de la baterie Li-Po, fiind gândit ca un sistem eficient energetic și scalabil.
-
+OpenBook este un dispozitiv portabil de tip e-book reader bazat pe ESP32-C6. Dispozitivul conține un ecran e-paper, butoane de control, senzor de mediu, ceas de timp real și posibilitate de alimentare de la baterie Li-Po, fiind gândit ca un sistem eficient energetic și scalabil.
 ---
 
-## 📊 1. Diagramă bloc
+####  Diagramă bloc
 
-![Diagramă bloc](https://docs.google.com/drawings/d/1UpxRyJNfczJHhNRvWdeb5kh_7IEUy5173odk93W_GSA/export/png)
+![Diagramă bloc](https://raw.githubusercontent.com/TeodoraTeo05/proiect-TSC/main/Images/block_diagram_white.png)
 
 ---
 
@@ -65,7 +64,7 @@ OpenBook este un dispozitiv portabil de tip e-book reader bazat pe ESP32-C6. Pro
 | IC4 | XC6220A331MR-G | XC6220A331MR-G | LDO Voltage Regulators | [XC6220A331MR-G](N/A) |
 
 
-## 3. Funcționalitate hardware
+##  Funcționalitate hardware
 
 Proiectul OpenBook este un cititor de tip e-paper, alimentat din baterie LiPo și construit în jurul microcontrollerului ESP32-C3-WROOM. 
 Dispozitivul colectează date de mediu (temperatură, umiditate, CO2, particule), le salvează pe card microSD și le poate afișa pe ecranul e-paper.
