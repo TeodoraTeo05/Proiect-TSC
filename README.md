@@ -56,7 +56,7 @@ OpenBook este un dispozitiv portabil de tip e-book reader bazat pe ESP32-C6. Dis
 | U$1 | BUTTON_CUSYOMV1 | [BUTTON_CUSYOMV1](N/A) |
 | J2 | SAMACSYS_PARTS_USB4110-GF-A | [SAMACSYS_PARTS_USB4110-GF-A](N/A) |
 | Q3 | SI1308EDL-T1-GE3 | [SI1308EDL-T1-GE3](N/A) |
-| TP1, TP2, TP3, TP4, TP5, TP6, TP7, TP8, TP9, TP10, TP11, TP12, TP13, TP14, TP15, TP16, TP17 | TPTP20R | [TPTP20R](N/A) |
+| TP1, TP2, TP3, TP4, TP5, TP6, TP7, TP8, TP9, TP10, TP11, TP12, TP13, TP14, TP15, TP16, TP17 | TPTP20R | [facut de mine] |
 | D1 | USBLC6-2SC6Y | [USBLC6-2SC6Y](https://www.snapeda.com/parts/USBLC6-2SC6Y/STMicroelectronics/view-part/?ref=snap) |
 | U1 | W25Q512JVEIQ | [W25Q512JVEIQ](https://www.snapeda.com/parts/W25Q512JVEIQ/Winbond+Electronics/view-part/?ref=snap) |
 | IC4 | XC6220A331MR-G | [XC6220A331MR-G](N/A) |
