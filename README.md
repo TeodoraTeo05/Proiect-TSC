@@ -6,35 +6,55 @@ Diagrama bloc de mai jos ilustrează modul de interconectare al componentelor pr
 
 ![Block Diagram](https://docs.google.com/drawings/d/1UpxRyJNfczJHhNRvWdeb5kh_7IEUy5173odk93W_GSA/export/png)
 
-## BOM (Bill of Materials)
+| Part | Value | Device | Description | Datasheet/Link |
+|------|--------|--------|-------------|----------------|
+| CHG_LED | N/A | ADAFRUIT_LEDCHIP-LED0603 | LED | [ADAFRUIT_LEDCHIP-LED0603](N/A) |
+| SJ1 | N/A | SJ | SMD solder JUMPER | [SJ](N/A) |
+| EPD_C5 | 0.1uF/50V | EAGLE-LTSPICE_CC0402 | CAPACITOR, European symbol | [EAGLE-LTSPICE_CC0402](N/A) |
+| R3 | 0.47 | ESP32_WROVER_EAGLE-LTSPICE_RR0402 | RESISTOR, European symbol | [ESP32_WROVER_EAGLE-LTSPICE_RR0402](N/A) |
+| R1_PWRUSB | 100k | ESP32_WROVER_EAGLE-LTSPICE_RR0402 | RESISTOR, European symbol | [ESP32_WROVER_EAGLE-LTSPICE_RR0402](N/A) |
+| C4_USB | 100nF | EAGLE-LTSPICE_CC0402 | CAPACITOR, European symbol | [EAGLE-LTSPICE_CC0402](N/A) |
+| C1, C2, C6, C8, C9, C10, C_DELAY | 100nF | ESP32_WROVER_EAGLE-LTSPICE_CC0402 | CAPACITOR, European symbol | [ESP32_WROVER_EAGLE-LTSPICE_CC0402](N/A) |
+| C3 | 100uF TANT | RCL_CPOL-EUCT3528 | POLARIZED CAPACITOR, European symbol | [RCL_CPOL-EUCT3528](N/A) |
+| R1, R1_PINH, R1_PINH1, R2_PINH, R2_PINH1, R4, R5, R6, R7, R8, R9, R10, R_BOOT, R_CHANGE, R_CL1, R_RESET | 10k | ESP32_WROVER_EAGLE-LTSPICE_RR0402 | RESISTOR, European symbol | [ESP32_WROVER_EAGLE-LTSPICE_RR0402](N/A) |
+| C7 | 10uF | ESP32_WROVER_EAGLE-LTSPICE_CC0402 | CAPACITOR, European symbol | [ESP32_WROVER_EAGLE-LTSPICE_CC0402](N/A) |
+| J4 | 112A-TAAR-R03_ATTEND | 112A-TAAR-R03_ATTEND | Micro SD Card Socket, Push-Push Type, Top Mount, SMT, H=1.83mm, 10u | [112A-TAAR-R03_ATTEND](N/A) |
+| R_CAPACITOR | 15 | ESP32_WROVER_EAGLE-LTSPICE_RR0402 | RESISTOR, European symbol | [ESP32_WROVER_EAGLE-LTSPICE_RR0402](N/A) |
+| C5 | 1uF | ESP32_WROVER_EAGLE-LTSPICE_CC0402 | CAPACITOR, European symbol | [ESP32_WROVER_EAGLE-LTSPICE_CC0402](N/A) |
+| EPD_C6, EPD_C7, EPD_C8, EPD_C9, EPD_C10, EPD_C11, EPD_C12 | 1uF/50V | EAGLE-LTSPICE_CC0402 | CAPACITOR, European symbol | [EAGLE-LTSPICE_CC0402](N/A) |
+| EPD_C1, EPD_C2 | 1uF/50V | ESP32_WROVER_EAGLE-LTSPICE_CC0402 | CAPACITOR, European symbol | [ESP32_WROVER_EAGLE-LTSPICE_CC0402](N/A) |
+| R2 | 2.2 | ESP32_WROVER_EAGLE-LTSPICE_RR0402 | RESISTOR, European symbol | [ESP32_WROVER_EAGLE-LTSPICE_RR0402](N/A) |
+| R1_BAT | 200 | ESP32_WROVER_EAGLE-LTSPICE_RR0402 | RESISTOR, European symbol | [ESP32_WROVER_EAGLE-LTSPICE_RR0402](N/A) |
+| Q1, Q2 | 20V/4.2A/52m?/1.4W | ESP32_WROVER_SPARKFUN-DISCRETESEMI_MOSFET_PCH-DMG2305UX-7 | P-channel MOSFETs | [ESP32_WROVER_SPARKFUN-DISCRETESEMI_MOSFET_PCH-DMG2305UX-7](N/A) |
+| R2_BAT | 2k | ESP32_WROVER_EAGLE-LTSPICE_RR0402 | RESISTOR, European symbol | [ESP32_WROVER_EAGLE-LTSPICE_RR0402](N/A) |
+| C5_USB | 4.7uF | EAGLE-LTSPICE_CC0402 | CAPACITOR, European symbol | [EAGLE-LTSPICE_CC0402](N/A) |
+| C1_BAT, C1_BAT1, C1_BAT2, C2_BAT | 4.7uF | ESP32_WROVER_EAGLE-LTSPICE_CC0402 | CAPACITOR, European symbol | [ESP32_WROVER_EAGLE-LTSPICE_CC0402](N/A) |
+| C4 | 4.7uF/25V | ESP32_WROVER_EAGLE-LTSPICE_CC0402 | CAPACITOR, European symbol | [ESP32_WROVER_EAGLE-LTSPICE_CC0402](N/A) |
+| R2-USB, R2-USB1 | 5k1 | ESP32_WROVER_EAGLE-LTSPICE_RR0402 | RESISTOR, European symbol | [ESP32_WROVER_EAGLE-LTSPICE_RR0402](N/A) |
+| L1 | 68uH | 744043680IND_4828-WE-TPC_WRE | N/A | [744043680IND_4828-WE-TPC_WRE](N/A) |
+| IC1 | BD5229G-TR | BD5229G-TR | Voltage Detector with Adjustable Delay Time: CMOS processes are utilized to develop high precision, low current consumption CMOS reset ICs that allow arbitrary setting of the delay time. The extensive lineup includes both Nch Open Drain and CMOS output types in a wide range of detection voltages (from 2.3V to 6.0V, in 0.1V steps), enabling selection of the ideal solution based on customer requirements. In addition, the entire series is of course both lead-free and RoHS-compliant. | [BD5229G-TR](N/A) |
+| SENSOR2 | BME688 | ESP32_WROVER_BME680_BME680 | Integrated Environmental Unit | [ESP32_WROVER_BME680_BME680](N/A) |
+| U$2 | BOOT_BUTTON | BUTTON_CUSYOMV1 | N/A | [BUTTON_CUSYOMV1](N/A) |
+| U$3 | CHANGE_BUTTON | BUTTON_CUSYOMV1 | N/A | [BUTTON_CUSYOMV1](N/A) |
+| C10_SUPERCAP | CPH3225A | CPH3225A | Cap 0.011F 3.3V 1210 Flat Check availability | [CPH3225A](https://www.snapeda.com/parts/CPH3225A/Seiko+Instruments/view-part/?ref=snap) |
+| U3 | DS3231SN# | DS3231SN# | Real Time Clock Serial 16-Pin SOIC W T/R     Check availability | [DS3231SN#](https://www.snapeda.com/parts/DS3231SN%23/Analog+Devices/view-part/?ref=snap) |
+| U2 | ESP32-C6-WROOM-1-N8 | ESP32-C6-WROOM-1-N8 | Check availability | [ESP32-C6-WROOM-1-N8](N/A) |
+| PFMF.050.1 | ESP32C6_VARISTORCN1812 | ESP32C6_VARISTORCN1812 | VARISTOR | [ESP32C6_VARISTORCN1812](N/A) |
+| D2, D7 | ESP32_WROVER_AVX---SD0805S020S1R0_AVX_SD0805S020S1R0_0_0AVX_SD0805S020S1R0_0_0 | ESP32_WROVER_AVX---SD0805S020S1R0_AVX_SD0805S020S1R0_0_0AVX_SD0805S020S1R0_0_0 | Schottky Barrier Rectifier Diode | [ESP32_WROVER_AVX---SD0805S020S1R0_AVX_SD0805S020S1R0_0_0AVX_SD0805S020S1R0_0_0](N/A) |
+| MCP73831 | ESP32_WROVER_SPARKFUN-IC-POWER_MCP73831 | ESP32_WROVER_SPARKFUN-IC-POWER_MCP73831 | MCP73831T Li-Ion, Li-Pol Controller | [ESP32_WROVER_SPARKFUN-IC-POWER_MCP73831](N/A) |
+| J1 | FH34SRJ-24S-0.5SH_99_ | FH34SRJ-24S-0.5SH_99_ |  (0.50mm) Surface Mount, Right Angle | [FH34SRJ-24S-0.5SH_99_](N/A) |
+| U4 | MAX17048G+T10 | MAX17048G+T10 | Check availability | [MAX17048G+T10](https://www.snapeda.com/parts/MAX17048G+T10/Analog+Devices/view-part/?ref=snap) |
+| D3, D4, D5 | MBR0530 | MBR0530 | ON SEMICONDUCTOR - MBR0530 - DIODE, SCHOTTKY, 0.5A, 30V, SOD-123 | [MBR0530](https://www.snapeda.com/parts/MBR0530/Onsemi/view-part/?ref=snap) |
+| D6, D8, D9, D10, D11, D12 | PGB1010603MR | PGB1010603MR | Check availability | [PGB1010603MR](https://www.snapeda.com/parts/PGB1010603MR/Littelfuse/view-part/?ref=snap) |
+| J3 | QWIIC_RIGHT_ANGLE | QWIIC_CONNECTORJS-1MM | SparkFun I2C Standard Qwiic Connector | [QWIIC_CONNECTORJS-1MM](N/A) |
+| U$1 | RESET_BUTTON | BUTTON_CUSYOMV1 | N/A | [BUTTON_CUSYOMV1](N/A) |
+| J2 | SAMACSYS_PARTS_USB4110-GF-A | SAMACSYS_PARTS_USB4110-GF-A | CONN USB 2.0 TYPE-C R/A SMT | [SAMACSYS_PARTS_USB4110-GF-A](N/A) |
+| Q3 | SI1308EDL-T1-GE3 | SI1308EDL-T1-GE3 | MOSFET N-Ch 30V 1.5A TrenchFET SC70 Vishay Si1308EDL-T1-GE3 N-channel MOSFET Transistor, 1.5 A, 30 V, 3-Pin SC-70 | [SI1308EDL-T1-GE3](N/A) |
+| TP1, TP2, TP3, TP4, TP5, TP6, TP7, TP8, TP9, TP10, TP11, TP12, TP13, TP14, TP15, TP16, TP17 | TPTP20R | TPTP20R | Test pad | [TPTP20R](N/A) |
+| D1 | USBLC6-2SC6Y | USBLC6-2SC6Y | Low Cap. ESD Protection Auto SOT-23-6 STMicroelectronics USBLC6-2SC6Y, Dual Uni-Directional TVS Diode Array, 6-Pin SOT-23 | [USBLC6-2SC6Y](https://www.snapeda.com/parts/USBLC6-2SC6Y/STMicroelectronics/view-part/?ref=snap) |
+| U1 | W25Q512JVEIQ | W25Q512JVEIQ | Check availability | [W25Q512JVEIQ](https://www.snapeda.com/parts/W25Q512JVEIQ/Winbond+Electronics/view-part/?ref=snap) |
+| IC4 | XC6220A331MR-G | XC6220A331MR-G | LDO Voltage Regulators | [XC6220A331MR-G](N/A) |
 
-| Component | Value | Description | Datasheet | Purchase Link |
-|-----------|-------|-------------|-----------|----------------|
-| CHG_LED | - | LED | - | - |
-| SJ1 | - | SMD solder JUMPER | - | - |
-| EPD_C5 | 0.1uF/50V | CAPACITOR, European symbol | - | - |
-| R3 | 0.47 | RESISTOR, European symbol | - | - |
-| R1_PWRUSB | 100k | RESISTOR, European symbol | - | - |
-| C4_USB | 100nF | CAPACITOR, European symbol | - | - |
-| C1, C2, C6, C8, C9, C10, C_DELAY | 100nF | CAPACITOR, European symbol | - | - |
-| C3 | 100uF TANT | POLARIZED CAPACITOR, European symbol | - | - |
-| R1, R1_PINH, R1_PINH1, R2_PINH, R2_PINH1, R4, R5, R6, R7, R8, R9, R10, R_BOOT, R_CHANGE, R_CL1, R_RESET | 10k | RESISTOR, European symbol | - | - |
-| C7 | 10uF | CAPACITOR, European symbol | - | - |
-| J4 | 112A-TAAR-R03_ATTEND | Micro SD Card Socket, Push-Push Type, Top Mount, SMT, H=1.83mm, 10u | - | - |
-| R_CAPACITOR | 15 | RESISTOR, European symbol | - | - |
-| C5 | 1uF | CAPACITOR, European symbol | - | - |
-| EPD_C6, EPD_C7, EPD_C8, EPD_C9, EPD_C10, EPD_C11, EPD_C12 | 1uF/50V | CAPACITOR, European symbol | - | - |
-| EPD_C1, EPD_C2 | 1uF/50V | CAPACITOR, European symbol | - | - |
-| R2 | 2.2 | RESISTOR, European symbol | - | - |
-| R1_BAT | 200 | RESISTOR, European symbol | - | - |
-| Q1, Q2 | 20V/4.2A/52mΩ/1.4W | P-channel MOSFETs | - | - |
-| R2_BAT | 2k | RESISTOR, European symbol | - | - |
-| C5_USB | 4.7uF | CAPACITOR, European symbol | - | - |
-| C1_BAT, C1_BAT1, C1_BAT2, C2_BAT | 4.7uF | CAPACITOR, European symbol | - | - |
-| U4 | MAX17048G+T10 | Battery Fuel Gauge | [Datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/MAX17048-MAX17049.pdf) | [Mouser](https://www.mouser.com/ProductDetail/Maxim-Integrated/MAX17048G-T10) |
-| U2 | ESP32-C6-WROOM-1-N8 | ESP32 WiFi+BT SoC | [Datasheet](https://www.espressif.com/sites/default/files/documentation/esp32-c6-wroom-1_datasheet_en.pdf) | [Mouser](https://www.mouser.com/ProductDetail/Espressif/ESP32-C6-WROOM-1-N8) |
-| U3 | DS3231SN# | RTC (Real Time Clock) | [Datasheet](https://datasheets.maximintegrated.com/en/ds/DS3231.pdf) | [Mouser](https://www.mouser.com/ProductDetail/Maxim-Integrated/DS3231SN) |
-| SENSOR2 | BME688 | Environmental Sensor | [Datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme688-ds000.pdf) | [Mouser](https://www.mouser.com/ProductDetail/Bosch-Sensortec/BME688) |
 
 ## 3. Funcționalitate hardware
 
