@@ -7,7 +7,7 @@ OpenBook este un dispozitiv portabil de tip e-book reader bazat pe ESP32-C6. Dis
 
 #### 1 Diagramă bloc
 
-![Diagramă bloc](https://raw.githubusercontent.com/TeodoraTeo05/proiect-TSC/main/Images/diagrama_bloc.png)
+![Diagramă bloc](https://raw.githubusercontent.com/TeodoraTeo05/proiect-TSC/main/Images/diagrama.png)
 
 ---
 ## 2 BOM (Bill of Materials)
