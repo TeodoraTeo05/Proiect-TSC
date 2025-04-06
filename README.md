@@ -1,10 +1,10 @@
 # Proiect TSC 2025 - OpenBook
 
-## 1. Diagrama bloc a sistemului
+## Diagrama Bloc
 
-Diagrama bloc de mai jos ilustrează modul de interconectare al componentelor principale utilizate în cadrul proiectului:
+Această diagramă ilustrează conexiunile hardware principale dintre modulele proiectului OpenBook și microcontroller-ul ESP32-C6:
 
-![Block Diagram](https://docs.google.com/drawings/d/1UpxRyJNfczJHhNRvWdeb5kh_7IEUy5173odk93W_GSA/export/png)
+![Block Diagram](./block_diagram_openbook.png)
 
 ## BOM (Bill of Materials)
 
