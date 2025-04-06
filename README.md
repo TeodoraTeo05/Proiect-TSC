@@ -6,13 +6,7 @@ Diagrama bloc de mai jos ilustrează modul de interconectare al componentelor pr
 
 ![Block Diagram](https://docs.google.com/drawings/d/1UpxRyJNfczJHhNRvWdeb5kh_7IEUy5173odk93W_GSA/export/png)
 
-# Proiect TSC 2025 - OpenBook
-
-## 1. Diagrama bloc a sistemului
-
-Diagrama bloc de mai jos ilustrează modul de interconectare al componentelor principale utilizate în cadrul proiectului:
-
-![Block Diagram](https://docs.google.com/drawings/d/1UpxRyJNfczJHhNRvWdeb5kh_7IEUy5173odk93W_GSA/export/png)
+## BOM (Bill of Materials)
 
 | Part | Value | Device | Description | Datasheet/Link |
 |------|--------|--------|-------------|----------------|
